@@ -1,0 +1,54 @@
+<div class="col col-md-8">
+
+  <agm-map
+    [zoom]=12
+    [latitude]="locationInitial ? locationInitial.lat : null"
+    [longitude]="locationInitial ? locationInitial.lng : null"
+    (mapClick)="onLocationChosen($event)" >
+    <agm-marker
+      [latitude]="locationSelected.lat"
+      [longitude]="locationSelected.lng"
+      *ngIf="locationSelected">
+    </agm-marker>
+  </agm-map>
+
+  <form [formGroup]="venueForm" class="map-form">
+
+    <div class="form-group row">
+
+      <div class="col col-md-12">
+        <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Address</span>
+          </div>
+          <input type="text" formControlName="address" class="form-control" placeholder="Please select the venue position on map!" >
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group row">
+
+      <div class="col col-md-6">
+        <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Latitude</span>
+          </div>
+          <input type="number" formControlName="posLatitude" class="form-control">
+        </div>
+      </div>
+
+      <div class="col col-md-6">
+        <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Longitude</span>
+          </div>
+          <input type="number" formControlName="posLongitude" class="form-control" >
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
